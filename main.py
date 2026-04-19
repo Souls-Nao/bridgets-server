@@ -81,7 +81,7 @@ def iniciar_sesion(datos: UsuarioLogin, bd: Session = Depends(obtener_bd)):
         "usuario": usuario_db.nombre_usuario
     }
 
-@app.post("/usuarios/")
+@app.post("/registro/")
 def registrar_usuario(usuario: UsuarioNuevo, bd: Session = Depends(obtener_bd)):
     # 1. VERIFICACIONES DE FORMATO
     if len(usuario.codigo_estudiante) != 9 and usuario.rol == "estudiante":
