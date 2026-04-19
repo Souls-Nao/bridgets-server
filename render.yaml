@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bridgets-api
+    env: python
+    region: ohio # Ajusta según cercanía (ej. ohio, oregon, frankfurt)
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12 # Render usa esta versión para el build
+      - key: DATABASE_URL
+        sync: false # Asegúrate de agregar manualmente este valor en el dashboard de Render
